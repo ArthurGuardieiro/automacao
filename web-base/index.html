@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <h1>Cadastro de alunos</h1>
+        <form>
+            <label for="nomeCompleto">Nome Completo</label>
+            <input name="nomeCompleto" type="text" v-model="form.nome">
+
+            <label for="email">Email</label>
+            <input type="email" name="email" v-model="form.email">
+
+            <label for="nota">Nota</label>
+            <input type="text" name="nota" v-model="form.nota">
+
+            <input type="button" value="Cadastrar" @click="adicionarAluno">
+        </form>
+
+        <span>
+            {{form.nome}} - {{form.email}} - {{form.nota}}
+        </span>
+
+        <div>
+            <table class="table">
+                <thead>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Nota</th>
+                    <th>Ações</th>
+                </thead>
+                <tbody>
+                    <tr v-for="aluno in alunos">
+                        <td>{{aluno.nome}}</td>
+                        <td>{{aluno.email}}</td>
+                        <td>{{aluno.nota}}</td>
+                        <td>
+                            <button class="danger" @click="apagarAluno(aluno)">Apagar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                form: {
+                    nome: '',
+                    email: '',
+                    nota: ''
+                },
+                alunos: [
+                    {nome: 'Fernando', email: 'fernando@gmail.com', nota: 10},
+                    {nome: 'Julio', email: 'julio@gmail.com', nota: 10},
+                    {nome: 'João', email: 'joao@gmail.com', nota: 10}
+                ]
+            },
+            methods: {
+                adicionarAluno: function() {
+                    this.alunos.push(this.form)
+                    this.limparFormulario()
+                },
+
+                limparFormulario: function() {
+                    this.form = {
+                        nome: '',
+                        email: '',
+                        nota: ''
+                    }
+                },
+                apagarAluno: function(aluno) {
+                    var posicao = this.alunos.indexOf(aluno)
+                    this.alunos.splice(posicao, 1)
+                }
+
+            }
+        })
+    </script>
+
+    <style>
+        .table{
+            margin: 20px 0;
+            width: 100%;
+            text-align: left;
+        }
+
+        .table th, .table td{
+            border-top: 1px solid #ccc;
+        }
+
+        input{
+            display: block;
+        }
+
+        input[type=button] {
+            background-color: #3F51B5;
+            border-color: #3F51B5;
+            color: #eee;
+            margin-top: 10px;
+        }
+
+        .danger{
+            background-color: #e91e63;
+            border-color: #e91e63;
+            color: #eee;
+        }
+
+        .table th:last-child, .table td:last-child {
+            text-align: right;
+        }
+    </style>
+
+</body>
+
+</html>

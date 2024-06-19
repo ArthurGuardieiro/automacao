@@ -1,0 +1,11 @@
+#language: pt
+
+Funcionalidade: login
+    Sendo um usuário da plataforma
+    Quero fazer login no sistema
+    Para que eu possa utilizar o software
+
+    
+    Cenario: Fazer login
+
+    

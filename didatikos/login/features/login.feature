@@ -8,4 +8,8 @@ Funcionalidade: login
     
     Cenario: Fazer login
 
+        Dado que acesso a página de login
+        Quando submeto o meu login correto
+        Então sou redirecionado para o Dashboard
+
     

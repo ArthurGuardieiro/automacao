@@ -5,7 +5,6 @@ Funcionalidade: login
     Quero fazer login no sistema
     Para que eu possa utilizar o software
 
-    @login
     Cenario: Fazer login
 
         Dado que acesso a página de login
@@ -14,16 +13,16 @@ Funcionalidade: login
         |admin@ditatikos.com|didatikos@1010|
         Então sou redirecionado para o Dashboard
 
-    
-    Cenario: Fazer login sem o email
-
+    @Esquema
+    Esquema do Cenario: Tentativa de login 
         Dado que acesso a página de login
-        Quando submeto o meu login sem o email
-        Então vejo a mensagem de alerta: "O campo e-mail é obrigatório."
+        Quando submeto o seguinte formulário de cadastro:
+        |email        |senha         |
+        |<email_input>|<senha_input> |
+        Então vejo a mensagem de alerta: '<mensagem_output>'
 
-    
-    Cenario: Fazer login sem senha
-
-        Dado que acesso a página de login
-        Quando submeto o meu login sem a senha
-        Então vejo a mensagem de alerta: "O campo senha é obrigatório."
+        Exemplos:
+        |email_input         |senha_input   |mensagem_output              |
+        |                    |didatikos@1010|O campo e-mail é obrigatório.|
+        |admind@ditatikos.com|              |O campo senha é obrigatório. |
+        |admin$ditatikos.com |didatikos@1010|Email ou senha inválidos!    |

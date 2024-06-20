@@ -9,6 +9,6 @@ Funcionalidade: Cadastro
 
     Dado que acesso a página de Cadastro
     Quando sumeto o seguinte formulário de cadastro:
-        |primeiro_nome|sobrenome|email            |senha         |
-        |Joao         |Silva    |josilva@gmail.com|didatikos@1010|
+        |data_matricula|data_nascimento|primeiro_nome|sobrenome|email            |senha         |
+        |20/06/2024    |15/05/2005     |Joao         |Silva    |josilva@gmail.com|didatikos@1010|
     Então abre um modal com mensagem de sucesso

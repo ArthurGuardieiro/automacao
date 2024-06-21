@@ -17,7 +17,19 @@ Quando('sumeto o seguinte formulário de cadastro:') do |table|
     find('#password').set user[:senha]
     find('#password_confirmation').set user[:senha]
 
-    sleep 4
+    #Selecionar escola
+    find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[1]/div/div/div[1]').click()
+    find(:xpath, '//*[@id="null-2"]').click()
+
+    #Selecionar período letivo
+    find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div/div/div[1]').click()
+    find(:xpath, '//*[@id="null-0"]').click()
+
+    #Selecionar turma
+    find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[2]/div[1]/div/div/div[1]').click()
+    find(:xpath, '//*[@id="null-0"]').click()
+
+    click_button "Salvar"
 
 end
   

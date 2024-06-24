@@ -11,5 +11,5 @@ Funcionalidade: Cadastro
     Dado que acesso a página de Cadastro
     Quando sumeto o seguinte formulário de cadastro:
         |data_matricula|data_nascimento|primeiro_nome|sobrenome|email            |senha         |escola|periodo_letivo|
-        |20/06/2024    |15/05/2005     |Joao         |Silva    |josilva@gmail.com|didatikos@1010|      |              | 
-    Então abre um modal com mensagem de sucesso
+        |20/06/2024    |15/05/2005     |Rogerio      |Silva    |rogerio@gmail.com|didatikos@1010|      |              | 
+    Então abre um modal com mensagem de "Sucesso!"

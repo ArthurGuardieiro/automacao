@@ -32,7 +32,8 @@ Quando('sumeto o seguinte formulário de cadastro:') do |table|
     click_button "Salvar"
 
 end
-  
-Então('abre um modal com mensagem de sucesso') do
-    pending # Write code here that turns the phrase above into concrete actions
+
+Então('abre um modal com mensagem de {string}') do |expect_alert|
+    alert = find('.alert-title')
+    expect(alert.text).to eql expect_alert
 end

@@ -8,12 +8,15 @@ end
 Quando('sumeto o seguinte formulário de cadastro:') do |table|
     
     user = table.hashes.first
+    first_name = Faker::Name.first_name
+    last_name = Faker::Name.last_name
+    email_name = first_name + last_name
     
     find('#data_matricula').set user[:data_matricula]
     find('#data_nascimento').set user[:data_nascimento]
-    find('#first_name').set user[:primeiro_nome]
-    find('#last_name').set user[:sobrenome]
-    find('#email').set user[:email]
+    find('#first_name').set first_name
+    find('#last_name').set last_name
+    find('#email').set Faker::Internet.email(name: email_name, domain: 'gmail.com')
     find('#password').set user[:senha]
     find('#password_confirmation').set user[:senha]
 

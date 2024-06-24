@@ -1,5 +1,6 @@
 require "capybara"
 require "capybara/cucumber"
+require "faker"
 
 
 

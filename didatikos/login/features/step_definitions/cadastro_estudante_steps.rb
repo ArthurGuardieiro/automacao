@@ -5,7 +5,7 @@ Dado('que acesso a página de Cadastro') do
 
 end
   
-Quando('sumeto o seguinte formulário de cadastro:') do |table|
+Quando('submeto o seguinte formulário de cadastro:') do |table|
     
     user = table.hashes.first
     first_name = Faker::Name.first_name
@@ -18,7 +18,7 @@ Quando('sumeto o seguinte formulário de cadastro:') do |table|
     find('#last_name').set last_name
     find('#email').set Faker::Internet.email(name: email_name, domain: 'gmail.com')
     find('#password').set user[:senha]
-    find('#password_confirmation').set user[:senha]
+    find('#password_confirmation').set user[:confirma_senha]
 
     #Selecionar escola
     find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[1]/div/div/div[1]').click()
@@ -36,7 +36,16 @@ Quando('sumeto o seguinte formulário de cadastro:') do |table|
 
 end
 
-Então('abre um modal com mensagem de {string}') do |expect_alert|
-    alert = find('.alert-title')
+Então('abre um modal de sucesso com mensagem de {string}') do |expect_alert|
+    alert_title = find('.alert-title')
+    expect(alert_title.text).to eql "Sucesso!"
+    alert = find('.alert-content')
+    expect(alert.text).to eql expect_alert
+end
+
+Então('abre um modal de erro com mensagem de {string}') do |expect_alert|
+    alert_title = find('.alert-title')
+    expect(alert_title.text).to eql "Erro!"
+    alert = find('.alert-content')
     expect(alert.text).to eql expect_alert
 end

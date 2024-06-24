@@ -8,7 +8,7 @@ Funcionalidade: login
     Cenario: Fazer login
 
         Dado que acesso a página de login
-        Quando submeto o seguinte formulário de cadastro:
+        Quando submeto o seguinte formulário de login:
         |email              |senha         |
         |admin@ditatikos.com|didatikos@1010|
         Então sou redirecionado para o Dashboard
@@ -16,7 +16,7 @@ Funcionalidade: login
     @Esquema
     Esquema do Cenario: Tentativa de login 
         Dado que acesso a página de login
-        Quando submeto o seguinte formulário de cadastro:
+        Quando submeto o seguinte formulário de login:
         |email        |senha         |
         |<email_input>|<senha_input> |
         Então vejo a mensagem de alerta: '<mensagem_output>'

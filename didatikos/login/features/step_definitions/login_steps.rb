@@ -2,7 +2,7 @@ Dado('que acesso a página de login') do
     visit "https://didatikos-hmg.didatikos.com.br/ava/login"
 end
   
-Quando('submeto o seguinte formulário de cadastro:') do |table|
+Quando('submeto o seguinte formulário de login:') do |table|
     
     user = table.hashes.first
 

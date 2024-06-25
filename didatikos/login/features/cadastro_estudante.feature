@@ -10,22 +10,25 @@ Funcionalidade: Cadastro
 
     Dado que acesso a página de Cadastro
     Quando submeto o seguinte formulário de cadastro:
-        |data_matricula|data_nascimento|senha         |confirma_senha|
-        |20/06/2024    |15/05/2005     |didatikos@1010|didatikos@1010|
+        |nome     |sobrenome|data_matricula|data_nascimento|senha         |confirma_senha|
+        |aleatorio|aleatorio|20/06/2024    |15/05/2005     |didatikos@1010|didatikos@1010|
     Então abre um modal de sucesso com mensagem de "Operação realizada com sucesso!" 
 
     @Esquema_cadastro
     Esquema do Cenario: Tentativa de cadastro
         Dado que acesso a página de Cadastro
         Quando submeto o seguinte formulário de cadastro:
-        |data_matricula   |data_nascimento   |senha        |confirma_senha  |
-        |<matricula_input>|<nascimento_input>|<senha_input>|<confirma_input>|
+        |nome         |sobrenome        |data_matricula   |data_nascimento   |senha        |confirma_senha  |
+        |<nome_input> |<sobrenome_input>|<matricula_input>|<nascimento_input>|<senha_input>|<confirma_input>|
         Então abre um modal de erro com mensagem de "<mensagem_output>"
 
         Exemplos:
-        |matricula_input|nascimento_input|senha_input   |confirma_input|mensagem_output                               |
-        |               |05/05/2005      |didatikos@1010|didatikos@1010|Data de matricula é inválida. - 1132          |
-        |02/02/2024     |                |didatikos@1010|didatikos@1010|Data de nascimento é inválida. - 1132         |
-        |02/02/2024     |05/05/2005      |              |didatikos@1010|O campo senha é obrigatório.                  |
-        |02/02/2024     |05/05/2005      |didatikos@1010|              |A confirmação para o campo senha não coincide.|
+        |nome_input|sobrenome_input|matricula_input|nascimento_input|senha_input   |confirma_input|mensagem_output                                                    |
+        |          |aleatorio      |02/02/2024     |05/05/2005      |didatikos@1010|didatikos@1010|O campo primeiro nome é obrigatório.                               |
+        |aleatorio |               |02/02/2024     |05/05/2005      |didatikos@1010|didatikos@1010|O campo sobrenome é obrigatório.                                   |                               
+        |aleatorio |aleatorio      |               |05/05/2005      |didatikos@1010|didatikos@1010|Data de matricula é inválida. - 1132                               |
+        |aleatorio |aleatorio      |02/02/2024     |                |didatikos@1010|didatikos@1010|Data de nascimento é inválida. - 1132                              |
+        |aleatorio |aleatorio      |02/02/2024     |05/05/2005      |              |didatikos@1010|O campo senha é obrigatório.                                       |
+        |aleatorio |aleatorio      |02/02/2024     |05/05/2005      |didatikos@1010|              |A confirmação para o campo senha não coincide.                     |
+        |aleatorio |aleatorio      |02/02/2024     |05/05/2015      |didatikos@1010|didatikos@1010|Estudante menor de idade, email do responsável é obrigatorio - 1132|
         

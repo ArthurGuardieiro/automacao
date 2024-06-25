@@ -8,8 +8,21 @@ end
 Quando('submeto o seguinte formulário de cadastro:') do |table|
     
     user = table.hashes.first
-    first_name = Faker::Name.first_name
-    last_name = Faker::Name.last_name
+
+    first_name = ""
+    if(user[:nome] == "aleatorio")
+        first_name = Faker::Name.first_name
+    elsif(user[:nome] != "")
+        first_name = user[:nome]
+    end
+
+    last_name = ""
+    if(user[:sobrenome] == "aleatorio")
+        last_name = Faker::Name.last_name
+    elsif(user[:sobrenome] != "") 
+        last_name = user[:sobrenome]
+    end
+    
     email_name = first_name + last_name
     
     find('#data_matricula').set user[:data_matricula]

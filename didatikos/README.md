@@ -2,8 +2,8 @@
 
 Pré-requisitos: Ruby
 
-'''bash
+``` bash
 gem install bundler
 
 bundle install
-'''
+```

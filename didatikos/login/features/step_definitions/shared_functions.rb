@@ -24,3 +24,11 @@ def formato_data(dia, mes, ano)
     return "#{meses[mes - 1]} #{dia}, #{ano}"
 
 end
+
+Então('abre um modal de sucesso com mensagem de {string}') do |expect_alert|
+    alert_title = find('.alert-title')
+    expect(alert_title.text).to eql "Sucesso!"
+    alert = find('.alert-content')
+    expect(alert.text).to eql expect_alert
+end
+

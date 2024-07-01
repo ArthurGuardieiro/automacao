@@ -6,16 +6,14 @@ Dado('que acesso a página de nova transmissão') do
 end
   
 Quando('submeto o cadastro da transmissão') do
-    escola = "Escola Municipal Professor Balena"
+    escola = "Messias Pedreiro"
     xpath_escola = get_xpath_span(escola)
 
-    turma = "2.o ANO - MB2 173 - EDNA"
+    turma = "3a"
     xpath_turma = get_xpath_span(turma)
 
-    componente = "GEOGRAFIA"
+    componente = "Português"
     xpath_componente = get_xpath_span(componente)
-
-    
 
     
     find("#titulo").set "Portugues"
@@ -41,8 +39,4 @@ Quando('submeto o cadastro da transmissão') do
     click_button 'Salvar'
 
     sleep 5
-end
-  
-Então('abre um modal de sucesso com a mensagem {string}') do |string|
-    pending # Write code here that turns the phrase above into concrete actions
 end

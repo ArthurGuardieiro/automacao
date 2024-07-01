@@ -49,13 +49,6 @@ Quando('submeto o seguinte formulário de cadastro:') do |table|
 
 end
 
-Então('abre um modal de sucesso com mensagem de {string}') do |expect_alert|
-    alert_title = find('.alert-title')
-    expect(alert_title.text).to eql "Sucesso!"
-    alert = find('.alert-content')
-    expect(alert.text).to eql expect_alert
-end
-
 Então('abre um modal de erro com mensagem de {string}') do |expect_alert|
     alert_title = find('.alert-title')
     expect(alert_title.text).to eql "Erro!"

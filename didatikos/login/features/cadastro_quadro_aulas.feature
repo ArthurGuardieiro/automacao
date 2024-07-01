@@ -8,4 +8,4 @@ Funcionalidade: Cadastro de quadro de aulas
     Cenario: Nova transmissão
         Dado que acesso a página de nova transmissão
         Quando submeto o cadastro da transmissão
-        Então abre um modal de sucesso com a mensagem "tal"
+        Então abre um modal de sucesso com mensagem de "Quadro de aulas cadastrado com sucesso!"

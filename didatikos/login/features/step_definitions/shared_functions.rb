@@ -33,7 +33,6 @@ Então('abre um modal de sucesso com mensagem de {string}') do |expect_alert|
 end
 
 def selecionar_escola(escola, xpath_elemento)
-    puts "pegando funao de outro arq"
     if(escola != "")
         xpath_escola = get_xpath_span(escola)
         find(:xpath, xpath_elemento).click()

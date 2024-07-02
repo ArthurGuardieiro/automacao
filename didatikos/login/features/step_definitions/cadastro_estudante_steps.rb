@@ -15,14 +15,10 @@ Quando('submeto o seguinte formulário de cadastro:') do |table|
     
     find('#data_matricula').set estudante[:data_matricula]
     find('#data_nascimento').set estudante[:data_nascimento]
-    
-    
     find('#email').set Faker::Internet.email(domain: 'gmail.com')
     find('#password').set estudante[:senha]
     find('#password_confirmation').set estudante[:confirma_senha]
 
-    #Selecionar escola
-    puts estudante[:escola]
     selecionar_escola(estudante[:escola], '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[1]/div/div/div[1]')
 
 

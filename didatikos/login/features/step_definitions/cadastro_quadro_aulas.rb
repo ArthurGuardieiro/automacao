@@ -4,10 +4,6 @@ Dado('que acesso a página de nova transmissão') do
 
     login("admin@ditatikos.com", "didatikos@1010")
 end
-  
-Quando('submeto o cadastro da transmissão') do
-    
-end
 
 Quando('submeto o seguinte cadastro da transmissão:') do |table|
 
@@ -15,34 +11,69 @@ Quando('submeto o seguinte cadastro da transmissão:') do |table|
 
     find("#titulo").set transmissao[:nome]
 
-    xpath_escola = get_xpath_span(transmissao[:escola])
-
-    xpath_turma = get_xpath_span(transmissao[:turma])
-
-    xpath_componente = get_xpath_span(transmissao[:componente])
-  
-
     #Selecioninado a escola
-    find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div[2]/div/div[1]').click()
-    find(:xpath, xpath_escola).click()
+    selecionar_escola(transmissao[:escola])
 
     #Selecionando a turma
-    find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[3]/div/div/div[1]').click()
-    find(:xpath, xpath_turma).click()
+    selecionar_turma(transmissao[:turma])
 
     #Selecionando componente
-    find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[4]/div/div/div[1]').click()
-    find(:xpath, xpath_componente).click()
+    selecionar_componente(transmissao[:componente])
 
     #Selecionando a data da aula
-    find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[4]/div/button').click()
-    find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[4]/div[1]/div[1]/div/div/input[2]').click()
-    time = Time.new
-    dataHoje = formato_data(time.day, time.month, time.year)
-    xpath_data = get_xpath_data(dataHoje)
-    find(:xpath, xpath_data).click()
+    selecionar_data(transmissao[:data])
+    
 
     click_button 'Salvar'
 
-    sleep 5
+end
+
+def selecionar_escola(escola)
+
+    if(escola != "")
+        xpath_escola = get_xpath_span(escola)
+        find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div[2]/div/div[1]').click()
+        find(:xpath, xpath_escola).click()
+    else
+        xpath_escola = get_xpath_span("Escola Didatikos - Fernando")
+        find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div[2]/div/div[1]').click()
+        find(:xpath, xpath_escola).click()
+    end
+
+end
+
+def selecionar_turma(turma)
+
+    if(turma != "")
+        xpath_turma = get_xpath_span(turma)
+        find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[3]/div/div/div[1]').click()
+        find(:xpath, xpath_turma).click()
+    end
+
+
+end
+
+def selecionar_componente(componente)
+    if(componente != "") 
+        xpath_componente = get_xpath_span(componente)
+        find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[4]/div/div/div[1]').click()
+        find(:xpath, xpath_componente).click()
+    end
+
+end
+
+def selecionar_data(data)
+    puts data
+    puts data == "hoje"
+    
+    if(data == "hoje")
+        puts "entrou ----------------------------------------------"
+        find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[4]/div/button').click()
+        find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[4]/div[1]/div[1]/div/div/input[2]').click()
+        time = Time.new
+        dataHoje = formato_data(time.day, time.month, time.year)
+        xpath_data = get_xpath_data(dataHoje)
+        find(:xpath, xpath_data).click()
+    end
+
 end

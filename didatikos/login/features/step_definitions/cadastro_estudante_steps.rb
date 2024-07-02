@@ -21,14 +21,12 @@ Quando('submeto o seguinte formulário de cadastro:') do |table|
 
     selecionar_escola(estudante[:escola], '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[1]/div/div/div[1]')
 
-
     #Selecionar período letivo
     find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div/div/div[1]').click()
     find(:xpath, '//*[@id="null-0"]').click()
 
-    #Selecionar turma
-    find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[2]/div[1]/div/div/div[1]').click()
-    find(:xpath, '//*[@id="null-0"]').click()
+    selecionar_turma(estudante[:turma], '//*[@id="app"]/div[4]/form/div[2]/div[2]/div[1]/div/div/div[1]')
+
 
     click_button "Salvar"
 

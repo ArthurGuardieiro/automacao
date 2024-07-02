@@ -44,3 +44,14 @@ def selecionar_escola(escola, xpath_elemento)
     end
 
 end
+
+def selecionar_turma(turma, xpath_elemento)
+
+    if(turma != "")
+        xpath_turma = get_xpath_span(turma)
+        find(:xpath, xpath_elemento).click()
+        find(:xpath, xpath_turma).click()
+    end
+
+
+end

@@ -15,7 +15,7 @@ Quando('submeto o seguinte cadastro da transmissão:') do |table|
     selecionar_escola(transmissao[:escola], '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div[2]/div/div[1]')
 
     #Selecionando a turma
-    selecionar_turma(transmissao[:turma])
+    selecionar_turma(transmissao[:turma], '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[3]/div/div/div[1]')
 
     #Selecionando componente
     selecionar_componente(transmissao[:componente])
@@ -28,16 +28,7 @@ Quando('submeto o seguinte cadastro da transmissão:') do |table|
 
 end
 
-def selecionar_turma(turma)
 
-    if(turma != "")
-        xpath_turma = get_xpath_span(turma)
-        find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[3]/div/div/div[1]').click()
-        find(:xpath, xpath_turma).click()
-    end
-
-
-end
 
 def selecionar_componente(componente)
     if(componente != "") 

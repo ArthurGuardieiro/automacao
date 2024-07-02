@@ -55,3 +55,20 @@ def selecionar_turma(turma, xpath_elemento)
 
 
 end
+
+def selecionar_nome(nome)
+    if(nome == "aleatorio")
+        find('#first_name').set Faker::Name.first_name
+    else
+        find('#first_name').set nome
+    end
+end
+
+def selecioner_sobrenome(sobrenome)
+    if(sobrenome == "aleatorio")
+        find('#last_name').set Faker::Name.last_name
+    else
+        find('#last_name').set sobrenome
+    end
+
+end

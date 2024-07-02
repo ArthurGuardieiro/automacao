@@ -39,34 +39,3 @@ Então('abre um modal de erro com mensagem de {string}') do |expect_alert|
     expect(alert.text).to eql expect_alert
 end
 
-def selecionar_nome(nome)
-    if(nome == "aleatorio")
-        find('#first_name').set Faker::Name.first_name
-    else
-        find('#first_name').set nome
-    end
-end
-
-def selecioner_sobrenome(sobrenome)
-    if(sobrenome == "aleatorio")
-        find('#last_name').set Faker::Name.last_name
-    else
-        find('#last_name').set sobrenome
-    end
-
-end
-
-def selecionar_escola(escola)
-
-    puts "entrou na func"
-
-    if(escola != "" )
-        puts "entrou aqui dentro"
-        xpath_escola = get_xpath_span(escola)
-        find(:xpath, ).click()
-        find(:xpath, xpath_escola).click()
-    else
-        puts "foi para o else"
-    end
-
-end

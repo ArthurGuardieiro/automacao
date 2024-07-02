@@ -9,12 +9,8 @@ Quando('submeto o seguinte formulário de cadastro:') do |table|
     
     user = table.hashes.first
 
-    first_name = ""
-    if(user[:nome] == "aleatorio")
-        first_name = Faker::Name.first_name
-    elsif(user[:nome] != "")
-        first_name = user[:nome]
-    end
+    selecionar_nome(user[:nome])
+    
 
     last_name = ""
     if(user[:sobrenome] == "aleatorio")
@@ -23,13 +19,13 @@ Quando('submeto o seguinte formulário de cadastro:') do |table|
         last_name = user[:sobrenome]
     end
     
-    email_name = first_name + last_name
+    #email_name = first_name + last_name
     
     find('#data_matricula').set user[:data_matricula]
     find('#data_nascimento').set user[:data_nascimento]
-    find('#first_name').set first_name
+    
     find('#last_name').set last_name
-    find('#email').set Faker::Internet.email(name: email_name, domain: 'gmail.com')
+    find('#email').set Faker::Internet.email(domain: 'gmail.com')
     find('#password').set user[:senha]
     find('#password_confirmation').set user[:confirma_senha]
 
@@ -54,4 +50,12 @@ Então('abre um modal de erro com mensagem de {string}') do |expect_alert|
     expect(alert_title.text).to eql "Erro!"
     alert = find('.alert-content')
     expect(alert.text).to eql expect_alert
+end
+
+def selecionar_nome(nome)
+    if(nome == "aleatorio")
+        find('#first_name').set Faker::Name.first_name
+    else
+        find('#first_name').set nome
+    end
 end

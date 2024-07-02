@@ -63,11 +63,8 @@ def selecionar_componente(componente)
 end
 
 def selecionar_data(data)
-    puts data
-    puts data == "hoje"
     
     if(data == "hoje")
-        puts "entrou ----------------------------------------------"
         find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[4]/div/button').click()
         find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[4]/div[1]/div[1]/div/div/input[2]').click()
         time = Time.new

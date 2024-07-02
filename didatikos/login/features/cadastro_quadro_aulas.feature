@@ -26,3 +26,8 @@ Funcionalidade: Cadastro de quadro de aulas
         |nome_input|escola_input    |turma_input|componente_input|data_input|mensagem_output                                               |
         |          |Messias Pedreiro|3a         |Português       |hoje      |O campo titulo é obrigatório.                                 |
         |Português |                |           |                |          |O campo sala é obrigatório. O campo input itens é obrigatório.|
+        |Português |Messias Pedreiro|           |                |          |O campo sala é obrigatório. O campo input itens é obrigatório.|
+        |Português |Messias Pedreiro|3a         |                |          |O campo sala é obrigatório. O campo input itens é obrigatório.|
+        |Português |Messias Pedreiro|3a         |Português       |          |O campo input itens é obrigatório.                            |
+        
+        

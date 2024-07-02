@@ -11,20 +11,12 @@ Quando('submeto o seguinte formulário de cadastro:') do |table|
 
     selecionar_nome(user[:nome])
     
-
-    last_name = ""
-    if(user[:sobrenome] == "aleatorio")
-        last_name = Faker::Name.last_name
-    elsif(user[:sobrenome] != "") 
-        last_name = user[:sobrenome]
-    end
-    
-    #email_name = first_name + last_name
+    selecioner_sobrenome(user[:sobrenome])
     
     find('#data_matricula').set user[:data_matricula]
     find('#data_nascimento').set user[:data_nascimento]
     
-    find('#last_name').set last_name
+    
     find('#email').set Faker::Internet.email(domain: 'gmail.com')
     find('#password').set user[:senha]
     find('#password_confirmation').set user[:confirma_senha]
@@ -58,4 +50,13 @@ def selecionar_nome(nome)
     else
         find('#first_name').set nome
     end
+end
+
+def selecioner_sobrenome(sobrenome)
+    if(sobrenome == "aleatorio")
+        find('#last_name').set Faker::Name.last_name
+    else
+        find('#last_name').set sobrenome
+    end
+
 end

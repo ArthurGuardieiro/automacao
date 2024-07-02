@@ -12,7 +12,7 @@ Quando('submeto o seguinte cadastro da transmissão:') do |table|
     find("#titulo").set transmissao[:nome]
 
     #Selecioninado a escola
-    selecionar_escola(transmissao[:escola])
+    selecionar_escola(transmissao[:escola], '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div[2]/div/div[1]')
 
     #Selecionando a turma
     selecionar_turma(transmissao[:turma])
@@ -25,20 +25,6 @@ Quando('submeto o seguinte cadastro da transmissão:') do |table|
     
 
     click_button 'Salvar'
-
-end
-
-def selecionar_escola(escola)
-
-    if(escola != "")
-        xpath_escola = get_xpath_span(escola)
-        find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div[2]/div/div[1]').click()
-        find(:xpath, xpath_escola).click()
-    else
-        xpath_escola = get_xpath_span("Escola Didatikos - Fernando")
-        find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div[2]/div/div[1]').click()
-        find(:xpath, xpath_escola).click()
-    end
 
 end
 

@@ -7,23 +7,24 @@ end
   
 Quando('submeto o seguinte formulário de cadastro:') do |table|
     
-    user = table.hashes.first
+    estudante = table.hashes.first
 
-    selecionar_nome(user[:nome])
+    selecionar_nome(estudante[:nome])
     
-    selecioner_sobrenome(user[:sobrenome])
+    selecioner_sobrenome(estudante[:sobrenome])
     
-    find('#data_matricula').set user[:data_matricula]
-    find('#data_nascimento').set user[:data_nascimento]
+    find('#data_matricula').set estudante[:data_matricula]
+    find('#data_nascimento').set estudante[:data_nascimento]
     
     
     find('#email').set Faker::Internet.email(domain: 'gmail.com')
-    find('#password').set user[:senha]
-    find('#password_confirmation').set user[:confirma_senha]
+    find('#password').set estudante[:senha]
+    find('#password_confirmation').set estudante[:confirma_senha]
 
     #Selecionar escola
-    find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[1]/div/div/div[1]').click()
-    find(:xpath, '//*[@id="null-2"]').click()
+    puts estudante[:escola]
+    selecionar_escola(estudante[:escola], '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[1]/div/div/div[1]')
+
 
     #Selecionar período letivo
     find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div/div/div[1]').click()
@@ -57,6 +58,21 @@ def selecioner_sobrenome(sobrenome)
         find('#last_name').set Faker::Name.last_name
     else
         find('#last_name').set sobrenome
+    end
+
+end
+
+def selecionar_escola(escola)
+
+    puts "entrou na func"
+
+    if(escola != "" )
+        puts "entrou aqui dentro"
+        xpath_escola = get_xpath_span(escola)
+        find(:xpath, ).click()
+        find(:xpath, xpath_escola).click()
+    else
+        puts "foi para o else"
     end
 
 end

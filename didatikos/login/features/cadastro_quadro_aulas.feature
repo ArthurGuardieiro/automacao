@@ -7,5 +7,7 @@ Funcionalidade: Cadastro de quadro de aulas
 
     Cenario: Nova transmissão
         Dado que acesso a página de nova transmissão
-        Quando submeto o cadastro da transmissão
+        Quando submeto o seguinte cadastro da transmissão:
+        |nome     |escola          |turma|componente|
+        |Português|Messias Pedreiro|3a   |Português |
         Então abre um modal de sucesso com mensagem de "Quadro de aulas cadastrado com sucesso!"

@@ -1,6 +1,6 @@
 Dado('que acesso a página de nova transmissão') do
 
-    visit "https://didatikos-hmg.didatikos.com.br/ava/quadro-de-aulas/create"
+    visit "/quadro-de-aulas/create"
 
     login("admin@ditatikos.com", "didatikos@1010")
 end
@@ -12,7 +12,7 @@ Quando('submeto o seguinte cadastro da transmissão:') do |table|
     find("#titulo").set transmissao[:nome]
 
     #Selecioninado a escola
-    selecionar_escola(transmissao[:escola], '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div[2]/div/div[1]')
+    selecionar_escola_quadro(transmissao[:escola], '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div[2]/div/div[1]')
 
     #Selecionando a turma
     selecionar_turma(transmissao[:turma], '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[3]/div/div/div[1]')
@@ -48,6 +48,19 @@ def selecionar_data(data)
         dataHoje = formato_data(time.day, time.month, time.year)
         xpath_data = get_xpath_data(dataHoje)
         find(:xpath, xpath_data).click()
+    end
+
+end
+
+def selecionar_escola_quadro(escola, xpath_elemento)
+    if(escola != "")
+        xpath_escola = get_xpath_span(escola)
+        find(:xpath, xpath_elemento).click()
+        find(:xpath, xpath_escola).click()
+    else
+        xpath_escola = get_xpath_span("Escola Didatikos - Fernando")
+        find(:xpath, xpath_elemento).click()
+        find(:xpath, xpath_escola).click()
     end
 
 end

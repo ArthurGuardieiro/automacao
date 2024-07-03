@@ -37,10 +37,6 @@ def selecionar_escola(escola, xpath_elemento)
         xpath_escola = get_xpath_span(escola)
         find(:xpath, xpath_elemento).click()
         find(:xpath, xpath_escola).click()
-    else
-        xpath_escola = get_xpath_span("Escola Didatikos - Fernando")
-        find(:xpath, xpath_elemento).click()
-        find(:xpath, xpath_escola).click()
     end
 
 end
@@ -54,6 +50,15 @@ def selecionar_turma(turma, xpath_elemento)
     end
 
 
+end
+
+def selecionar_periodo(periodo, xpath_elemento)
+    if(periodo != "")
+        xpath_periodo = get_xpath_span(periodo)
+        find(:xpath, xpath_elemento).click
+        find(:xpath, xpath_periodo).click()
+    end
+    
 end
 
 def selecionar_nome(nome)

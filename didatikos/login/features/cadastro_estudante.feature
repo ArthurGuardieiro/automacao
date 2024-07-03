@@ -25,6 +25,7 @@ Funcionalidade: Cadastro
         Exemplos:
         |escola_input    |periodo_input                    |turma_input|nome_input|sobrenome_input|matricula_input|nascimento_input|senha_input   |confirma_input|mensagem_output                                                    |
         |                |                                 |           |aleatorio |aleatorio      |02/02/2024     |05/05/2005      |didatikos@1010|didatikos@1010|O campo turma é obrigatório.                                       |
+        |Messias Pedreiro|                                 |           |aleatorio |aleatorio      |02/02/2024     |05/05/2005      |didatikos@1010|didatikos@1010|O campo turma é obrigatório.                                       |
         |Messias Pedreiro|Período letivo padrão 2024 - 2024|           |aleatorio |aleatorio      |02/02/2024     |05/05/2005      |didatikos@1010|didatikos@1010|O campo turma é obrigatório.                                       |
         |Messias Pedreiro|Período letivo padrão 2024 - 2024|3a         |          |aleatorio      |02/02/2024     |05/05/2005      |didatikos@1010|didatikos@1010|O campo primeiro nome é obrigatório.                               |
         |Messias Pedreiro|Período letivo padrão 2024 - 2024|3a         |aleatorio |               |02/02/2024     |05/05/2005      |didatikos@1010|didatikos@1010|O campo sobrenome é obrigatório.                                   |                               

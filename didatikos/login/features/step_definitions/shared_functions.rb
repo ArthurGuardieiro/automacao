@@ -1,10 +1,3 @@
-def login(email, senha) 
-    find("#email").set email
-    find("#password").set senha
-
-    click_button "Login"
-end
-
 def get_xpath_span(text) 
     xpath = "//span[text()='" + text + "']"
     return xpath

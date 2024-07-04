@@ -1,15 +1,10 @@
 Dado('que acesso a página de login') do
-    visit "https://didatikos-hmg.didatikos.com.br/ava/login"
+    @login_page.open
 end
   
-Quando('submeto o seguinte formulário de login:') do |table|
+Quando('submeto minhas credenciais com {string} e {string}') do |email, password|
     
-    user = table.hashes.first
-
-    find("#email").set user[:email]
-    find("#password").set user[:senha]
-
-    click_button "Login"
+    @login_page.with(email, password)
 
 end
   

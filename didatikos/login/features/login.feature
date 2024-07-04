@@ -5,20 +5,17 @@ Funcionalidade: login
     Quero fazer login no sistema
     Para que eu possa utilizar o software
 
+    @login
     Cenario: Fazer login
 
         Dado que acesso a página de login
-        Quando submeto o seguinte formulário de login:
-        |email              |senha         |
-        |admin@ditatikos.com|didatikos@1010|
+        Quando submeto minhas credenciais com "admin@ditatikos.com" e "didatikos@1010"
         Então sou redirecionado para o Dashboard
 
     @Esquema
     Esquema do Cenario: Tentativa de login 
         Dado que acesso a página de login
-        Quando submeto o seguinte formulário de login:
-        |email        |senha         |
-        |<email_input>|<senha_input> |
+         Quando submeto minhas credenciais com "<email_input>" e "<senha_input>"
         Então vejo a mensagem de alerta: '<mensagem_output>'
 
         Exemplos:

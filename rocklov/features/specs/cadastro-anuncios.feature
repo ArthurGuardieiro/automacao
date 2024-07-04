@@ -7,7 +7,7 @@ Funcionalidade: Cadastro de Anúncios
 
     Cenario: Novo equipo
 
-        Dado que estou logado
+        Dado que estou logado como "betao@yahoo.com" e "pwd123"
         E que acesso o formulario de cadastro de anúncios
         E que eu tenha o seguinte equipamento:
             |thumb      |fender-sb.jpg| 

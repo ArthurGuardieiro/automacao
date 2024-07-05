@@ -13,4 +13,6 @@ class LoginPage
         click_button "Entrar"
     end
 
+    
+
 end

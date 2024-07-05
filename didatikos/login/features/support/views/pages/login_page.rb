@@ -9,7 +9,6 @@ class LoginPage
         find("#email").set email
         find("#password").set password
         click_button "Login"
-
     end
 
 end

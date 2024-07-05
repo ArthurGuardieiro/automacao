@@ -1,8 +1,6 @@
 Dado('que acesso a página de Cadastro') do
     visit "/alunos/create"
 
-    login("admin@ditatikos.com", "didatikos@1010")
-
 end
   
 Quando('submeto o seguinte formulário de cadastro:') do |table|
@@ -19,22 +17,15 @@ Quando('submeto o seguinte formulário de cadastro:') do |table|
     find('#password').set estudante[:senha]
     find('#password_confirmation').set estudante[:confirma_senha]
 
-    selecionar_escola(estudante[:escola], '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[1]/div/div/div[1]')
+    selecionar_escola(estudante[:escola], '//*[@id="app"]/div[4]/div[2]/div/form/div[2]/div[1]/div[1]/div/div/div[1]')
 
     #Selecionar período letivo
-    selecionar_periodo(estudante[:periodo],'//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div/div/div[1]' )
+    selecionar_periodo(estudante[:periodo],'//*[@id="app"]/div[4]/div[2]/div/form/div[2]/div[1]/div[2]/div/div/div[1]' )
 
-    selecionar_turma(estudante[:turma], '//*[@id="app"]/div[4]/form/div[2]/div[2]/div[1]/div/div/div[1]')
+    selecionar_turma(estudante[:turma], '//*[@id="app"]/div[4]/div[2]/div/form/div[2]/div[2]/div[1]/div/div/div[1]')
 
 
     click_button "Salvar"
 
-end
-
-Então('abre um modal de erro com mensagem de {string}') do |expect_alert|
-    alert_title = find('.alert-title')
-    expect(alert_title.text).to eql "Erro!"
-    alert = find('.alert-content')
-    expect(alert.text).to eql expect_alert
 end
 

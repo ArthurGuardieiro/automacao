@@ -18,17 +18,24 @@ def formato_data(dia, mes, ano)
 
 end
 
+Dado('que estou logado como {string} e {string}') do |email, password|
+    @login_page.with(email, password)
+end
+
 Então('abre um modal de sucesso com mensagem de {string}') do |expect_alert|
-    alert_title = find('.alert-title')
-    expect(alert_title.text).to eql "Sucesso!"
-    alert = find('.alert-content')
-    expect(alert.text).to eql expect_alert
+    expect(@alert.title).to eql "Sucesso!"
+    expect(@alert.content).to eql expect_alert
+end
+
+Então('abre um modal de erro com mensagem de {string}') do |expect_alert|
+    expect(@alert.title).to eql "Erro!"
+    expect(@alert.content).to eql expect_alert
 end
 
 def selecionar_escola(escola, xpath_elemento)
     if(escola != "")
-        xpath_escola = get_xpath_span(escola)
         find(:xpath, xpath_elemento).click()
+        xpath_escola = get_xpath_span(escola)
         find(:xpath, xpath_escola).click()
     end
 

@@ -9,6 +9,7 @@ Funcionalidade: Cadastro
     Cenario: Fazer Cadastro
 
     Dado que acesso a página de Cadastro
+    E que estou logado como "admin@ditatikos.com" e "didatikos@1010"
     Quando submeto o seguinte formulário de cadastro:
         |escola          |periodo                          |turma|nome     |sobrenome|data_matricula|data_nascimento|senha         |confirma_senha|
         |Messias Pedreiro|Período letivo padrão 2024 - 2024|3a   |aleatorio|aleatorio|20/06/2024    |15/05/2005     |didatikos@1010|didatikos@1010|
@@ -17,6 +18,7 @@ Funcionalidade: Cadastro
     @Esquema_cadastro
     Esquema do Cenario: Tentativa de cadastro
         Dado que acesso a página de Cadastro
+        E que estou logado como "admin@ditatikos.com" e "didatikos@1010"
         Quando submeto o seguinte formulário de cadastro:
         |escola        |periodo        |turma        |nome         |sobrenome        |data_matricula   |data_nascimento   |senha        |confirma_senha  |
         |<escola_input>|<periodo_input>|<turma_input>|<nome_input> |<sobrenome_input>|<matricula_input>|<nascimento_input>|<senha_input>|<confirma_input>|

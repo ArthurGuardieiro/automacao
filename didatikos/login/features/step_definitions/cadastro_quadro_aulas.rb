@@ -2,7 +2,6 @@ Dado('que acesso a página de nova transmissão') do
 
     visit "/quadro-de-aulas/create"
 
-    login("admin@ditatikos.com", "didatikos@1010")
 end
 
 Quando('submeto o seguinte cadastro da transmissão:') do |table|

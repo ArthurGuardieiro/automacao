@@ -9,7 +9,7 @@ class EquiposPage
 
     def create(anuncio)
 
-        upload(anuncio[:thumb])
+        upload(anuncio[:thumb]) if anuncio[:thumb].length > 0
 
         find("input[placeholder$=equipamento]"). set anuncio[:nome]
         find("#category").find('option', text: anuncio[:categoria] ).select_option

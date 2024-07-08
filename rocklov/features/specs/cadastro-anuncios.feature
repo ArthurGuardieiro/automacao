@@ -5,14 +5,28 @@ Funcionalidade: Cadastro de Anúncios
     Quero cadastrar meus equipamentos
     Para que eu possa disponibilizados para locação
 
+    Contexto: Login
+        * Login com "betao@yahoo.com" e "pwd123"
+
     Cenario: Novo equipo
 
-        Dado que estou logado como "betao@yahoo.com" e "pwd123"
-        E que acesso o formulario de cadastro de anúncios
-        E que eu tenha o seguinte equipamento:
+        Dado que acesso o formulario de cadastro de anúncios
+            E que eu tenha o seguinte equipamento:
             |thumb      |fender-sb.jpg| 
             |nome       |Fender Strato|
             |categoria  |Cordas       |
             |preco      |200          |
         Quando submeto o cadastro desse item
         Então devo ver esse item no meu Dashboard
+
+    @temp
+    Cenario: Anúncio sem foto
+
+        Dado que acesso o formulario de cadastro de anúncios
+            E que eu tenha o seguinte equipamento:
+            |thumb      |             | 
+            |nome       |Fender Strato|
+            |categoria  |Cordas       |
+            |preco      |200          |
+        Quando submeto o cadastro desse item
+        Então deve conter a mensagem de alerta: "Adicione uma foto no seu anúncio!"

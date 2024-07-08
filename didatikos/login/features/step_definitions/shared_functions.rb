@@ -1,3 +1,17 @@
+Dado('que estou logado como {string} e {string}') do |email, password|
+    @login_page.with(email, password)
+end
+
+Então('abre um modal de sucesso com mensagem de {string}') do |expect_alert|
+    expect(@alert.title).to eql "Sucesso!"
+    expect(@alert.content).to eql expect_alert
+end
+
+Então('abre um modal de erro com mensagem de {string}') do |expect_alert|
+    expect(@alert.title).to eql "Erro!"
+    expect(@alert.content).to eql expect_alert
+end
+
 def get_xpath_span(text) 
     xpath = "//span[text()='" + text + "']"
     return xpath
@@ -16,20 +30,6 @@ def formato_data(dia, mes, ano)
 
     return "#{meses[mes - 1]} #{dia}, #{ano}"
 
-end
-
-Dado('que estou logado como {string} e {string}') do |email, password|
-    @login_page.with(email, password)
-end
-
-Então('abre um modal de sucesso com mensagem de {string}') do |expect_alert|
-    expect(@alert.title).to eql "Sucesso!"
-    expect(@alert.content).to eql expect_alert
-end
-
-Então('abre um modal de erro com mensagem de {string}') do |expect_alert|
-    expect(@alert.title).to eql "Erro!"
-    expect(@alert.content).to eql expect_alert
 end
 
 def selecionar_escola(escola, xpath_elemento)

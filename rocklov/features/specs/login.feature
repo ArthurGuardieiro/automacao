@@ -1,9 +1,9 @@
 #language: pt
 
 Funcionalidade: Login
-Sendo um usuário cadastrado
-Quero acessar o sistema da Rocklov
-Para que eu possa anunciar meus equipamentos musicais
+    Sendo um usuário cadastrado
+    Quero acessar o sistema da Rocklov
+    Para que eu possa anunciar meus equipamentos musicais
 
     @login
     Cenario: Login do usuário
@@ -19,12 +19,12 @@ Para que eu possa anunciar meus equipamentos musicais
         Então vejo a mensagem de alerta: "<mensagem_output>"
 
         Exemplos:
-            |email_input     |senha_input|mensagem_output                 |
-            |papito@yahoo.com|abc123     |Usuário e/ou senha inválidos.   |
-            |papito@404.com  |pwd123     |Usuário e/ou senha inválidos.   |
-            |papto&yahoo.com |pwd123     |Oops. Informe um email válido!  |
-            |                |pwd123     |Oops. Informe um email válido!  |
-            |papito@yahoo.com|           |Oops. Informe sua senha secreta!|
+            | email_input      | senha_input | mensagem_output                  |
+            | papito@yahoo.com | abc123      | Usuário e/ou senha inválidos.    |
+            | papito@404.com   | pwd123      | Usuário e/ou senha inválidos.    |
+            | papto&yahoo.com  | pwd123      | Oops. Informe um email válido!   |
+            |                  | pwd123      | Oops. Informe um email válido!   |
+            | papito@yahoo.com |             | Oops. Informe sua senha secreta! |
 
 
 

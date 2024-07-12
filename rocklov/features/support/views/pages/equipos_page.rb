@@ -1,28 +1,29 @@
-
-
 class EquiposPage
-    include Capybara::DSL
+  include Capybara::DSL
 
-    def open
-        visit "/equipos"
-    end
+  def open
+    visit "/equipos"
+  end
 
-    def create(anuncio)
+  def create(anuncio)
+    upload(anuncio[:thumb]) if anuncio[:thumb].length > 0
 
-        upload(anuncio[:thumb]) if anuncio[:thumb].length > 0
+    find("input[placeholder$=equipamento]").set anuncio[:nome]
 
-        find("input[placeholder$=equipamento]"). set anuncio[:nome]
-        find("#category").find('option', text: anuncio[:categoria] ).select_option
-        find("input[placeholder^=Valor]").set anuncio[:preco]
+    select_cat(anuncio[:categoria]) if anuncio[:categoria].length > 0
 
-        click_button 'Cadastrar'
-    end
+    find("input[placeholder^=Valor]").set anuncio[:preco]
 
-    def upload(file_name)
-        thumb = Dir.pwd + "/features/support/fixtures/images/" + file_name
+    click_button "Cadastrar"
+  end
 
-        find("#thumbnail input[type=file]", visible: false).set thumb
-    end
+  def select_cat(cat)
+    find("#category").find("option", text: cat).select_option
+  end
 
+  def upload(file_name)
+    thumb = Dir.pwd + "/features/support/fixtures/images/" + file_name
 
+    find("#thumbnail input[type=file]", visible: false).set thumb
+  end
 end

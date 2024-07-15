@@ -5,6 +5,7 @@ Funcionalidade: Cadastro de quadro de aulas
     Quero cadastrar uma nova transmissão no quadro de aulas
     Para que eu possa visualizar no quadro de aulas
 
+    @trans
     Cenario: Nova transmissão
         Dado que acesso a página de nova transmissão
         E que estou logado como "admin@ditatikos.com" e "didatikos@1010"

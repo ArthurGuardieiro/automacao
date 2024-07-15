@@ -1,13 +1,11 @@
-
 class Alert
-    include Capybara::DSL
+  include Capybara::DSL
 
-    def title
-        return find('.alert-title').text
-    end
-    
-    def content
-        return find('.alert-content').text
-    end
+  def title
+    return find(".alert-title").text
+  end
 
+  def content
+    return find(".alert-content").text
+  end
 end

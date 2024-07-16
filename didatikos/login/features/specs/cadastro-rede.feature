@@ -1,6 +1,6 @@
 #language: pt
 
-Funcionalidade: Cadastro
+Funcionalidade: Cadastro de rede Escolar
     Sendo uma escola que contratou o serviço
     Quero fazer o cadastro da sua rede escolar
     Para que eu possa utilizar a plataforma

@@ -5,6 +5,10 @@ class AlunosPage
     visit "/alunos/create"
   end
 
+  def open_listing
+    visit "/estudantes"
+  end
+
   def create(estudante)
     selecionar_nome(estudante[:nome])
 

@@ -5,18 +5,25 @@ end
 
 Dado("que acesso a listagem de estudantes") do
   @alunos_page.open_listing
-  sleep 5
 end
 
 Dado("que eu tenha o seguinte filtro:") do |table|
-  # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
+  click_button "Filtrar"
+  @filtro = table.rows_hash
+  @alunos_page.filter(@filtro)
 end
 
 Quando("excluo a escola do filtro") do
-  pending # Write code here that turns the phrase above into concrete actions
+  find(:xpath, '//*[@id="modals-container"]/div/div/div[2]/div/div/div[2]/div[1]/div/div[2]/div[1]/span/i').click()
 end
 
 Então("o filtro deve estar em branco") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_selector("input[placeholder$='Escola'] + span")
+  #expect(page).to have_selector("input[placeholder$='Escolar'] + span")
+  expect(@filter.filtro_periodo_letivo).to eq("2")
+  expect(page).to have_selector("input[placeholder$='Períodos'] + span")
+  expect(page).to have_selector("input[placeholder$='Turmas'] + span")
+  #expect(@filter.situacao).to eq("Selecionar a situação cadastral do estudante")
+  #expect(@filter.filtro_exibir_todos).to eq("2")
+  expect(@filter.estado).to eq ("Selecionar o estado da pré rematrícula")
 end

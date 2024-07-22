@@ -15,4 +15,5 @@ After do
     type: Allure::ContentType::PNG,
     source: File.open(temp_shot),
   )
+  Capybara.reset_sessions!
 end

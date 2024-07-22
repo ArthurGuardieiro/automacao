@@ -16,6 +16,11 @@ class Filter
     return span.text
   end
 
+  def situacao_aulas
+    span = find("input[placeholder$='situação'] + span")
+    return span.text
+  end
+
   def estado
     span = find("input[placeholder$='rematrícula'] + span")
     return span.text

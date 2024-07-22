@@ -12,6 +12,10 @@ Então("abre um modal de erro com mensagem de {string}") do |expect_alert|
   expect(@alert.content).to eql expect_alert
 end
 
+Quando("excluo a escola do filtro") do
+  find(:xpath, '//*[@id="modals-container"]/div/div/div[2]/div/div/div[2]/div[1]/div/div[2]/div[1]/span/i').click()
+end
+
 def get_xpath_span(text)
   xpath = "//span[text()='" + text + "']"
   return xpath

@@ -5,6 +5,19 @@ class QuadroAulasPage
     visit "/quadro-de-aulas/create"
   end
 
+  def open_listing
+    visit "/quadro-de-aulas"
+  end
+
+  def filter(filtro)
+    selecionar_escola_filtro(filtro[:Escola])
+    find('input[type="range"]').set(3)
+    selecionar_periodo(filtro[:Periodo])
+    selecionar_turma_filtro(filtro[:Turma])
+    selecionar_professor(filtro[:Professor])
+    selecionar_situacao(filtro[:Situacao])
+  end
+
   def create(transmissao)
     find("#titulo").set transmissao[:nome]
 
@@ -27,6 +40,14 @@ class QuadroAulasPage
     if (turma != "")
       xpath_turma = get_xpath_span(turma)
       find("input[placeholder='Turma']").click()
+      find(:xpath, xpath_turma).click()
+    end
+  end
+
+  def selecionar_turma_filtro(turma)
+    if (turma != "")
+      xpath_turma = get_xpath_span(turma)
+      find("input[placeholder$='Turmas']").click()
       find(:xpath, xpath_turma).click()
     end
   end
@@ -59,6 +80,38 @@ class QuadroAulasPage
       xpath_escola = get_xpath_span("Escola Didatikos - Fernando")
       find(:xpath, '//*[@id="app"]/div[4]/form/div[2]/div[1]/div[2]/div[2]/div/div[1]').click()
       find(:xpath, xpath_escola).click()
+    end
+  end
+
+  def selecionar_escola_filtro(escola)
+    if (escola != "")
+      xpath_escola = get_xpath_span(escola)
+      find("input[placeholder='Selecionar Escola']").click()
+      find(:xpath, xpath_escola).click()
+    end
+  end
+
+  def selecionar_periodo(periodo)
+    if (periodo != "")
+      xpath_periodo = get_xpath_span(periodo)
+      find("input[placeholder='Selecionar Períodos']").click()
+      find(:xpath, xpath_periodo).click()
+    end
+  end
+
+  def selecionar_professor(professor)
+    if (professor != "")
+      xpath_prof = get_xpath_span(professor)
+      find("input[placeholder$='Professor']").click()
+      find(:xpath, xpath_prof).click
+    end
+  end
+
+  def selecionar_situacao(situacao)
+    if (situacao != "")
+      xpath_situacao = get_xpath_span(situacao)
+      find("input[placeholder$='situação']").click
+      find(:xpath, xpath_situacao).click()
     end
   end
 

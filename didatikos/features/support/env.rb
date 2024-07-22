@@ -14,8 +14,3 @@ AllureCucumber.configure do |config|
   config.results_directory = "/logs"
   config.clean_results_directory = true
 end
-
-RSpec.configure do |config|
-  # Configuração padrão: não parar nos primeiros erros
-  config.fail_fast = false
-end

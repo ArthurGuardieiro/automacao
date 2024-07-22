@@ -5,6 +5,7 @@ Before do
   @alunos_page = AlunosPage.new
   @quadro_aulas_page = QuadroAulasPage.new
   @rede_page = RedePage.new
+  @colaboradores_page = ColaboradoresPage.new
 end
 
 After do

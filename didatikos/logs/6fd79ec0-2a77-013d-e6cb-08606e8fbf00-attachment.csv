@@ -1,2 +1,0 @@
-escola,periodo,turma,nome,sobrenome,data_matricula,data_nascimento,senha,confirma_senha
-<escola_input>,<periodo_input>,<turma_input>,<nome_input>,<sobrenome_input>,<matricula_input>,<nascimento_input>,<senha_input>,<confirma_input>

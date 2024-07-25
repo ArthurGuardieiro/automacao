@@ -4,6 +4,8 @@ require "faker"
 require "allure-cucumber"
 require "rspec"
 
+CONFIG = YAML.load_file(File.join(Dir.pwd, "features/support/config/#{ENV["CONFIG"]}"))
+
 Capybara.configure do |config|
   config.default_driver = :selenium_chrome
   config.default_max_wait_time = 15

@@ -1,10 +1,10 @@
 require_relative "base_api"
 
-class Signup < BaseApi
+class Equipos < BaseApi
   def create(payload)
     return self.class.post(
-             "/signup",
-             body: payload.to_json,
+             "/equipos",
+             body: payload,
              headers: {
                "Content-Type": "application/json",
              },

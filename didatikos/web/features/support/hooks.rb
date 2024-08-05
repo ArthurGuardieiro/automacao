@@ -6,6 +6,9 @@ Before do
   @quadro_aulas_page = QuadroAulasPage.new
   @rede_page = RedePage.new
   @colaboradores_page = ColaboradoresPage.new
+
+  #page.driver.browser.manage.window.maximize
+  page.current_window.resize_to(1440, 900)
 end
 
 After do

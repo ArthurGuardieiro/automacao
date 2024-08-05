@@ -1,0 +1,2 @@
+cargo,nome,sobrenome,nome_social,email,cpf,sexo,rede,escola,contratacao,senha,confirma_senha,token
+<cargo_input>,<nome_input>,<sobrenome_input>,<nome_social_input>,<email_input>,<cpf_input>,<sexo_input>,<rede_input>,<escola_input>,<contratacao_input>,<senha_input>,<confirma_senha_input>,<token_input>

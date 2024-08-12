@@ -16,6 +16,9 @@ task :local_seeds do
   users = [
     { name: "Roberto Carlos", email: "betao@yahoo.com", password: to_md5("pwd123") },
     { name: "Papito", email: "papito@yahoo.com", password: to_md5("pwd123") },
+    { name: "Spider", email: "spider@hotmail.com", password: to_md5("pwd123") },
+    { name: "João", email: "joao@anunciante.com", password: to_md5("pwd123") },
+    { name: "Maria", email: "maria@locataria.com", password: to_md5("pwd123") },
   ]
 
   MongoDB.new.drop_danger
@@ -30,6 +33,7 @@ task :hmg_seeds do
   users = [
     { name: "Roberto Carlos", email: "betao@yahoo.com", password: to_md5("pwd123") },
     { name: "Papito", email: "papito@yahoo.com", password: to_md5("pwd123") },
+    { name: "Spider", email: "spider@hotmail.com", password: to_md5("pwd123") },
   ]
 
   MongoDB.new.drop_danger
